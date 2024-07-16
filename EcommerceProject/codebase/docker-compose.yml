@@ -2,9 +2,9 @@ version: "3"
 
 services:
   web:
-    build: ./frontend/Dockerfile
+    build: './frontend/Dockerfile'
     restart: always
 
   backend:
-    build: ./backend/Dockerfile
+    build: './backend/Dockerfile'
     restart: always
