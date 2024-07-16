@@ -1,0 +1,10 @@
+version: "3"
+
+services:
+  web:
+    build: ./frontend/Dockerfile
+    restart: always
+
+  backend:
+    build: ./backend/Dockerfile
+    restart: always
