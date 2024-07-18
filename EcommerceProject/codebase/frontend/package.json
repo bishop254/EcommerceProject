@@ -52,5 +52,5 @@
       "last 1 safari version"
     ]
   },
-  "proxy": "http://backend:4000"
+  "proxy": "http://102.23.120.135:4000"
 }
