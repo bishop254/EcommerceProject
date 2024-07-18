@@ -1,22 +1,51 @@
+# # Fetching the latest node image on apline linux
+# FROM node:18-alpine AS builder
 
-FROM node:alpine AS build
-WORKDIR /usr/src/app
-COPY package.json package-lock.json ./
+# RUN mkdir -p /usr/src/app
 
-RUN npm cache clean --force
-COPY . .
+# # Setting up the work directory
+# WORKDIR /usr/src/app
 
+# # Installing dependencies
+# COPY ./package*.json ./
 # RUN npm install
-RUN npm run build 
+# RUN npm install react-scripts@latest -g
+
+# # Copying all the files in our project
+# COPY . .
+
+# # Building our application
+# RUN npm run build
+
+# # Fetching the latest nginx image
+# FROM nginx
+
+# # Copying built assets from builder
+# COPY --from=builder /usr/src/app/build /usr/share/nginx/html
+
+# # Copying our nginx.conf
+# COPY nginx.conf /etc/nginx/conf.d/default.conf
+
+# EXPOSE 80
+
+# CMD ["nginx", "-g", "daemon off;"]
+
+FROM node:18-alpine
 
 
-### STAGE 2:RUN ###
-# Defining nginx image to be used
-FROM nginx:latest AS ngi
-# Copying compiled code and nginx config to different folder
-# NOTE: This path may change according to your project's output folder 
-COPY --from=build /usr/src/app/build /usr/share/nginx/html
-COPY /nginx.conf  /etc/nginx/conf.d/default.conf
-# Exposing a port, here it means that inside the container 
-# the app will be using Port 80 while running
-EXPOSE 80
+RUN mkdir -p /srv/app/admin-client
+WORKDIR /srv/app/admin-client
+
+
+COPY package.json /srv/app/admin-client
+COPY package-lock.json /srv-app/admin-client
+
+RUN npm install --silent
+RUN npm install react-scripts@3.3.1 -g --silent
+
+
+COPY . /srv/app/admin-client
+
+EXPOSE 3000
+
+CMD [ "npm", "start" ]

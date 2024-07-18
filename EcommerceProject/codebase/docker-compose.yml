@@ -2,9 +2,30 @@ version: "3"
 
 services:
   web:
-    build: './frontend/Dockerfile'
-    restart: always
+    build: ./frontend/
+    expose:
+      - 3000   
+    ports:
+      - 3000:3000
+    volumes:
+      - ./frontend/src:/srv/app/admin-client/src
+      - ./frontend/public:/srv/app/admin-client/public
+    stdin_open: true
+    command: npm run start
 
   backend:
-    build: './backend/Dockerfile'
+    build: ./backend/
     restart: always
+    ports:
+      - "4000:4000"
+  
+  mongo:
+    image: mongo
+    container_name: shopit
+    restart: unless-stopped
+    env_file: ./backend/config/config.env
+    volumes:
+      - ~/data/db:/data/db
+    ports:
+      - 27017:27017
+    

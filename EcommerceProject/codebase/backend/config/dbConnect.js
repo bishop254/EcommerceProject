@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 
 export const connectDatabase = () => {
-  let DB_URI = "mongodb://127.0.0.1:27017/shopit-v2";
+  let DB_URI = "mongodb://host.docker.internal:27017/shopit-v2";
 
   if (process.env.NODE_ENV === "DEVELOPMENT") DB_URI = process.env.DB_LOCAL_URI;
   if (process.env.NODE_ENV === "PRODUCTION") DB_URI = process.env.DB_URI;

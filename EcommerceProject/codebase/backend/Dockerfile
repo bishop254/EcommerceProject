@@ -1,5 +1,5 @@
 # Use the official Node.js image as the base image
-FROM node:14
+FROM node:18-alpine
 
 # Set the working directory
 WORKDIR /usr/src/app
@@ -11,7 +11,7 @@ COPY package*.json ./
 RUN npm install
 
 # Copy the rest of the application code
-COPY ./backend .
+COPY . .
 
 # Expose the port the app runs on
 EXPOSE 4000
