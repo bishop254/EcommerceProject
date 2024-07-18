@@ -1,0 +1,11 @@
+.container {
+    position: relative;
+    min-height: 500px; /* Set a minimum height for the container */
+    border: 1px solid #ccc; /* Just for visualization */
+}
+
+.sticky-button {
+    position: absolute;
+    bottom: 10px; /* Adjust this value to change the distance from the bottom */
+    width: 87%;
+}

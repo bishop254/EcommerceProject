@@ -1,0 +1,36 @@
+<custom-header [isLoggedIn]="true" ></custom-header>
+
+
+<div>
+
+    <div class="mt-5">
+
+        <div class="mb-5 flex flex-wrap items-center justify-center gap-2 font-semibold text-[#2196F3] sm:gap-5">
+            <div class="whitespace-nowrap font-medium text-black dark:text-white">Popular categories :</div>
+            <div class="flex items-center justify-center gap-2 sm:gap-5">
+                <a href="javascript:;" class="duration-300 hover:underline"> Electronics</a>
+                <a href="javascript:;" class="duration-300 hover:underline"> Home and Kitchen</a>
+                <a href="javascript:;" class="duration-300 hover:underline"> Health and Household</a>
+                <a href="javascript:;" class="duration-300 hover:underline"> Fashion</a>
+            </div>
+        </div>
+        <div class="grid grid-cols-1 gap-5 sm:grid-cols-2 xl:grid-cols-4">
+
+            <div (click)="openMoreDetails(product._id)"
+                *ngFor="let product of products"
+                class="space-y-5 rounded-md border border-white-light bg-white p-5 shadow-[0px_0px_2px_0px_rgba(145,158,171,0.20),0px_12px_24px_-4px_rgba(145,158,171,0.12)] dark:border-[#1B2E4B] dark:bg-black">
+                <div class="max-h-56 overflow-hidden rounded-md">
+                    <img alt="..." class="w-full object-cover" [src]="product?.images[0]?.url" />
+                </div>
+                <h5 class="text-xl dark:text-white">{{ product.name | titlecase}}</h5>
+                <div class="flex">
+                    <div class="flex-1">
+                        <h3 class="mb-1.5 font-semibold text-success">$ {{ product.price }}</h3>
+                    </div>
+                </div>
+                <p class="text-s dark:text-white">{{ product.description | titlecase}}</p>
+
+            </div>
+        </div>
+    </div>
+</div>

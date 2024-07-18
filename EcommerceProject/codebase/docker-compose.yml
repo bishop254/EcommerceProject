@@ -2,16 +2,11 @@ version: "3"
 
 services:
   web:
-    build: ./frontend/
+    build: ./vristo-angular-main/
     expose:
-      - 3000   
+      - 80   
     ports:
-      - 8081:3000
-    volumes:
-      - ./frontend/src:/srv/app/admin-client/src
-      - ./frontend/public:/srv/app/admin-client/public
-    stdin_open: true
-    command: npm run start
+      - 8081:80
     restart: always
 
   backend:

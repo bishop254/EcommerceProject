@@ -1,0 +1,37 @@
+<div
+    class="flex justify-end space-x-1.5 ltr:ml-auto rtl:mr-auto rtl:space-x-reverse dark:text-[#d0d2d6] sm:flex-1 ltr:sm:ml-0 sm:rtl:mr-0 lg:space-x-2"
+>
+    <button type="button" class="btn btn-primary mr-5" (click)="addProduct()">Add Product</button>
+
+</div>
+<div class="mt-5">
+    <div class="grid grid-cols-1 gap-5 sm:grid-cols-2 xl:grid-cols-4">
+
+
+        <div
+            class="container space-y-5 rounded-md border border-white-light bg-white p-5 shadow-[0px_0px_2px_0px_rgba(145,158,171,0.20),0px_12px_24px_-4px_rgba(145,158,171,0.12)] dark:border-[#1B2E4B] dark:bg-black"
+            *ngFor="let item of products">
+            <div class="max-h-56 overflow-hidden rounded-md">
+                <img [src]="item?.images[0]?.url" alt="..." class="w-full object-cover" />
+            </div>
+            <h5 class="text-xl dark:text-white">{{ item.name | titlecase}}</h5>
+            <div class="flex">
+                <div class="flex-1">
+                    <h4 class="mb-1.5 font-semibold text-success">$ {{ item.price }}</h4>
+                </div>
+            </div>
+
+            <div class="flex">
+                <div class="flex-1">
+                    <p class="text-s dark:text-white">{{ item.description | titlecase}}</p>
+                    <h4 class="mb-1.5 font-semibold dark:text-white">13 days ago</h4>
+                </div>
+            </div>
+            <div class="sticky-button mt-8 flex flex-col items-start justify-between gap-6 sm:flex-row">
+                <button type="button" class="btn btn-outline-success" (click)="editProduct(item._id)">Edit</button>
+                <button type="button" class="btn btn-outline-danger" (click)="deleteProduct(item._id)">Delete</button>
+            </div>
+        </div>
+
+    </div>
+</div>

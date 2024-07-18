@@ -1,0 +1,90 @@
+<custom-header [isLoggedIn]="true" ></custom-header>
+
+
+<div>
+
+<!--    <div class="mb-12 flex items-center rounded-b-md bg-[#DBE7FF] dark:bg-[#141F31]">-->
+<!--        <ul class="mx-auto flex items-center gap-5 overflow-auto whitespace-nowrap px-3 py-4.5 xl:gap-8">-->
+<!--            <li-->
+<!--                (click)="activeTab = 'general'"-->
+<!--                [ngClass]="{ 'bg-white text-primary dark:bg-[#1B2E4B]': activeTab === 'general' }"-->
+<!--                class="group flex min-w-[120px] cursor-pointer flex-col items-center justify-center gap-4 rounded-md px-8 py-2.5 text-center text-[#506690] duration-300 hover:bg-white hover:text-primary dark:hover:bg-[#1B2E4B]"-->
+<!--            >-->
+<!--                <icon-desktop [fill]="true" />-->
+
+<!--                <h5 class="font-bold text-black dark:text-white">General</h5>-->
+<!--            </li>-->
+<!--            <li-->
+<!--                (click)="activeTab = 'quick-support'"-->
+<!--                [ngClass]="{ 'bg-white text-primary dark:bg-[#1B2E4B]': activeTab === 'quick-support' }"-->
+<!--                class="group flex min-w-[120px] cursor-pointer flex-col items-center justify-center gap-4 rounded-md px-8 py-2.5 text-center text-[#506690] duration-300 hover:bg-white hover:text-primary dark:hover:bg-[#1B2E4B]"-->
+<!--            >-->
+<!--                <icon-user [fill]="true" class="h-8 w-8" />-->
+
+<!--                <h5 class="font-bold text-black dark:text-white">Quick Support</h5>-->
+<!--            </li>-->
+<!--            <li-->
+<!--                (click)="activeTab = 'free-updates'"-->
+<!--                [ngClass]="{ 'bg-white text-primary dark:bg-[#1B2E4B]': activeTab === 'free-updates' }"-->
+<!--                class="group flex min-w-[120px] cursor-pointer flex-col items-center justify-center gap-4 rounded-md px-8 py-2.5 text-center text-[#506690] duration-300 hover:bg-white hover:text-primary dark:hover:bg-[#1B2E4B]"-->
+<!--            >-->
+<!--                <icon-box [fill]="true" />-->
+
+<!--                <h5 class="font-bold text-black dark:text-white">Free Updates</h5>-->
+<!--            </li>-->
+<!--            <li-->
+<!--                (click)="activeTab = 'pricing'"-->
+<!--                [ngClass]="{ 'bg-white text-primary dark:bg-[#1B2E4B]': activeTab === 'pricing' }"-->
+<!--                class="group flex min-w-[120px] cursor-pointer flex-col items-center justify-center gap-4 rounded-md px-8 py-2.5 text-center text-[#506690] duration-300 hover:bg-white hover:text-primary dark:hover:bg-[#1B2E4B]"-->
+<!--            >-->
+<!--                <icon-dollar-sign-circle [fill]="true" />-->
+
+<!--                <h5 class="font-bold text-black dark:text-white">Pricing</h5>-->
+<!--            </li>-->
+<!--            <li-->
+<!--                (click)="activeTab = 'hosting'"-->
+<!--                [ngClass]="{ 'bg-white text-primary dark:bg-[#1B2E4B]': activeTab === 'hosting' }"-->
+<!--                class="group flex min-w-[120px] cursor-pointer flex-col items-center justify-center gap-4 rounded-md px-8 py-2.5 text-center text-[#506690] duration-300 hover:bg-white hover:text-primary dark:hover:bg-[#1B2E4B]"-->
+<!--            >-->
+<!--                <icon-router [fill]="true" />-->
+
+<!--                <h5 class="font-bold text-black dark:text-white">Hosting</h5>-->
+<!--            </li>-->
+<!--        </ul>-->
+<!--    </div>-->
+
+
+    <div class="m-2 flex justify-between md:mt-5">
+        <!--        <h3 class="mb-1 text-center text-xl font-semibold md:text-2xl">Here are your <span class="text-primary">products</span></h3>-->
+        <h3 class="mb-2 text-xl font-bold dark:text-white md:text-2xl">Your Products</h3>
+        <!--        <div class="text-lg font-medium text-white-dark">-->
+        <!--            Click here to add a new Product-->
+        <!--        </div>-->
+        <!--        <div class="mt-8 flex flex-col items-center justify-center gap-6 sm:flex-row">-->
+        <button (click)="addProduct()" class="btn btn-primary btn-sm" type="button">
+            <icon-plus class="mr-0.5 text-white" />
+            Add Product
+        </button>
+        <!--        </div>-->
+    </div>
+
+    <div class="mt-10">
+        <div class="grid grid-cols-1 gap-5 sm:grid-cols-2 xl:grid-cols-4">
+            <div
+                *ngFor="let product of products"
+                class="space-y-5 rounded-md border border-white-light bg-white p-5 shadow-[0px_0px_2px_0px_rgba(145,158,171,0.20),0px_12px_24px_-4px_rgba(145,158,171,0.12)] dark:border-[#1B2E4B] dark:bg-black">
+                <div class="max-h-56 overflow-hidden rounded-md">
+                    <img alt="..." class="w-full object-cover" src="/src/assets/images/knowledge/image-1.jpg" />
+                </div>
+                <h5 class="text-xl dark:text-white">{{ product.productName }}</h5>
+                <div class="flex">
+                    <div class="flex-1">
+                        <h4 class="mb-1.5 font-semibold dark:text-white">{{ product.productPrice }}</h4>
+                    </div>
+                </div>
+                <p class="text-s dark:text-white">{{ product.productDesc }}</p>
+
+            </div>
+        </div>
+    </div>
+</div>

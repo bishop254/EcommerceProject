@@ -1,0 +1,187 @@
+<custom-header [isLoggedIn]="true"></custom-header>
+<div>
+
+    <div class="space-y-8 pt-5">
+        <div class="panel flex items-center overflow-x-auto whitespace-nowrap p-3 text-primary">
+            <div class="rounded-full bg-primary p-1.5 text-white ring-2 ring-primary/30 ltr:mr-3 rtl:ml-3">
+                <icon-bell />
+            </div>
+            <span class="ltr:mr-3 rtl:ml-3">Here are more details on the product </span
+            >
+        </div>
+
+        <div class="grid grid-cols-1 gap-6 lg:grid-cols-2">
+            <!-- Single File -->
+            <div class="panel relative">
+                <div class="mb-5 flex items-center justify-between">
+                    <h5 class="text-lg font-semibold dark:text-white-light">Product Details</h5>
+                </div>
+                <div class="mb-5">
+                    <div class="mb-5">
+                        <form class="space-y-5" [formGroup]="form">
+                            <div>
+                                <label>Product Category</label>
+                                <select class="form-select" formControlName="category" id="businessType" type="text">
+                                    <option value="Electronics">Electronics</option>
+                                    <option value="Cameras">Cameras</option>
+                                    <option value="Laptops">Laptops</option>
+                                    <option value="Accessories">Accessories</option>
+                                    <option value="Headphones">Headphones</option>
+                                    <option value="Food">Food</option>
+                                    <option value="Books">Books</option>
+                                    <option value="Sports">Sports</option>
+                                    <option value="Outdoor">Outdoor</option>
+                                    <option value="Home">Home</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label for="productName">Product Name</label>
+                                <input class="form-input" id="productName" formControlName="name"
+                                       placeholder="Enter Product Name" type="text" />
+                            </div>
+                            <div>
+                                <label>Product Description</label>
+                                <div class="flex">
+                                    <textarea class="form-textarea ltr:rounded-l-none rtl:rounded-r-none"
+                                              rows="4" formControlName="description"></textarea>
+                                </div>
+                            </div>
+                            <div class="mb-2">
+                                <label for="sellingPrice">Selling Price:</label>
+                                <div class="flex">
+                                    <div
+                                        class="flex items-center justify-center border border-[#e0e6ed] bg-[#eee] px-3 font-semibold ltr:rounded-l-md ltr:border-r-0 rtl:rounded-r-md rtl:border-l-0 dark:border-[#17263c] dark:bg-[#1b2e4b]"
+                                    >
+                                        $
+                                    </div>
+                                    <input class="form-input rounded-none" id="sellingPrice" placeholder=""
+                                           formControlName="price"
+                                           type="text" />
+                                    <div
+                                        class="flex items-center justify-center border border-[#e0e6ed] bg-[#eee] px-3 font-semibold ltr:rounded-r-md ltr:border-l-0 rtl:rounded-l-md rtl:border-r-0 dark:border-[#17263c] dark:bg-[#1b2e4b]"
+                                    >
+                                        .00
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="w-1/5">
+                                <ngx-number-spinner [max]="25" [min]="0" [value]="1" class="touchspin"
+                                                    direction="horizontal"></ngx-number-spinner>
+                            </div>
+                            <div class="mb-2">
+                                <button (click)="addItemToCart()" class="btn btn-primary w-full" type="submit">ADD TO CART</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- Multiple File Upload -->
+            <div class="panel">
+                <div class="mb-5 flex items-center justify-between">
+                    <h5 class="text-lg font-semibold dark:text-white-light">Product Images</h5>
+                </div>
+                <div class="mb-5">
+                    <div class="">
+                        <div class="mb-5 grid grid-cols-1 gap-5 lg:grid-cols-1">
+                            <div class="panel space-y-5">
+                                <div class="flex justify-around">
+                                    <ng-container (click)="open(1)">
+                                        <label class="inline-flex cursor-pointer">
+                                        <span>
+                                    <img alt="settings-dark" class="ms-3" height="68"
+                                         src="assets/images/carousel1.jpeg"
+                                         width="100" />
+                                </span>
+                                        </label>
+
+                                    </ng-container>
+
+
+                                    <label class="inline-flex cursor-pointer">
+                                        <span>
+                                    <img alt="settings-light" class="ms-3" height="68"
+                                         src="assets/images/carousel1.jpeg"
+                                         width="100" />
+                                </span>
+                                    </label>
+                                    <label class="inline-flex cursor-pointer">
+                                        <span>
+                                    <img alt="settings-dark" class="ms-3" height="68"
+                                         src="assets/images/carousel1.jpeg"
+                                         width="100" />
+                                </span>
+                                    </label>
+                                    <label class="inline-flex cursor-pointer">
+                                        <span>
+                                    <img alt="settings-light" class="ms-3" height="68"
+                                         src="assets/images/carousel1.jpeg"
+                                         width="100" />
+                                </span>
+                                    </label>
+                                    <label class="inline-flex cursor-pointer">
+                                        <span>
+                                    <img alt="settings-light" class="ms-3" height="68"
+                                         src="assets/images/carousel1.jpeg"
+                                         width="100" />
+                                </span>
+                                    </label>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="panel overflow-hidden">
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <div class="text-lg font-bold">Seller Details</div>
+                            </div>
+
+                        </div>
+                        <div class="grid grid-cols-2 gap-6">
+                            <div>
+                                <div class="text-danger">Posting for 11+ years</div>
+                            </div>
+                            <div>
+                                <div class="text-danger text-end font-semibold">See all ads</div>
+                            </div>
+                        </div>
+
+                        <div class="relative mt-1">
+                            <p class="text-danger font-semibold">Contact Seller <span
+                                class="text-danger small font-nunito">+254 788 996 554</span></p>
+
+                            <hr>
+
+                            <div class="text-lg font-bold mt-5">Send Message to Seller</div>
+                            <div class="mb-5">
+                                <div class="mb-5">
+                                    <form class="space-y-5">
+
+
+                                        <div>
+                                            <div class="flex">
+                                    <textarea [value]="'Hi there, Is this product still available?'"
+                                              class="form-textarea ltr:rounded-l-none rtl:rounded-r-none"
+                                              rows="4"></textarea>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <input class="form-input" placeholder="Your Phone Number" type="text" />
+                                        </div>
+                                        <div class="mb-2">
+                                            <button class="btn btn-primary w-full" type="submit">SEND MESSAGE</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

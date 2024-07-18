@@ -1,0 +1,100 @@
+<custom-header [isLoggedIn]="true"></custom-header>
+<div>
+
+    <div class="space-y-8 pt-5">
+        <div class="panel flex items-center overflow-x-auto whitespace-nowrap p-3 text-primary">
+            <div class="rounded-full bg-primary p-1.5 text-white ring-2 ring-primary/30 ltr:mr-3 rtl:ml-3">
+                <icon-bell />
+            </div>
+            <span class="ltr:mr-3 rtl:ml-3">Fill in product details, upload its images then click on the Create Products Button </span
+            >
+        </div>
+
+        <div class="grid grid-cols-1 gap-6 lg:grid-cols-2">
+            <!-- Single File -->
+            <div class="panel relative">
+                <div class="mb-5 flex items-center justify-between">
+                    <h5 class="text-lg font-semibold dark:text-white-light">Product Details Form</h5>
+                </div>
+                <div class="mb-5">
+                    <div class="mb-5">
+                        <form [formGroup]="form" class="space-y-5">
+                            <div>
+                                <label>Product Category</label>
+                                <select class="form-select" formControlName="category" id="businessType" type="text">
+                                    <option value="Electronics">Electronics</option>
+                                    <option value="Cameras">Cameras</option>
+                                    <option value="Laptops">Laptops</option>
+                                    <option value="Accessories">Accessories</option>
+                                    <option value="Headphones">Headphones</option>
+                                    <option value="Food">Food</option>
+                                    <option value="Books">Books</option>
+                                    <option value="Sports">Sports</option>
+                                    <option value="Outdoor">Outdoor</option>
+                                    <option value="Home">Home</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label for="productName">Product Name</label>
+                                <input class="form-input" formControlName="name" id="productName"
+                                       placeholder="Enter Product Name" type="text" />
+                            </div>
+                            <div>
+                                <label>Product Description</label>
+                                <div class="flex">
+                                    <textarea class="form-textarea ltr:rounded-l-none rtl:rounded-r-none"
+                                              formControlName="description" rows="4"></textarea>
+                                </div>
+                            </div>
+                            <div>
+                                <label for="sellingPrice">Selling Price:</label>
+                                <div class="flex">
+                                    <div
+                                        class="flex items-center justify-center border border-[#e0e6ed] bg-[#eee] px-3 font-semibold ltr:rounded-l-md ltr:border-r-0 rtl:rounded-r-md rtl:border-l-0 dark:border-[#17263c] dark:bg-[#1b2e4b]"
+                                    >
+                                        $
+                                    </div>
+                                    <input class="form-input rounded-none" formControlName="price" id="sellingPrice"
+                                           placeholder="" type="text" />
+                                    <div
+                                        class="flex items-center justify-center border border-[#e0e6ed] bg-[#eee] px-3 font-semibold ltr:rounded-r-md ltr:border-l-0 rtl:rounded-l-md rtl:border-r-0 dark:border-[#17263c] dark:bg-[#1b2e4b]"
+                                    >
+                                        .00
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <!--                        <button class="absolute bottom-5 left-5 btn btn-primary w-full" type="submit" (click)="createProduct()">Create Product</button>-->
+
+                            <button (click)="createProduct()" class="btn btn-primary w-full sticky-button"
+                                    type="button">Create Product
+                            </button>
+                            <!--                        <button type="button" class="btn btn-primary"  (click)="setDeliveryOptions()">Set Delivery Options</button>-->
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- Multiple File Upload -->
+            <div class="panel">
+                <div class="mb-5 flex items-center justify-between">
+                    <h5 class="text-lg font-semibold dark:text-white-light">Upload Product Images</h5>
+                </div>
+                <div class="mb-2">
+                    <div class="custom-file-container" data-upload-id="mySecondImage"></div>
+                </div>
+
+                <button (click)="uploadImages()" class="btn btn-primary w-full sticky-button text-center" type="button">
+                        <pre>Upload Image
+You uploaded {{ totalImagesUploads }} images. This incurs a charge of K{{ getImagesCost() }}</pre>
+
+
+                </button>
+            </div>
+
+        </div>
+    </div>
+</div>
