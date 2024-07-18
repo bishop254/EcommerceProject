@@ -6,7 +6,7 @@ services:
     expose:
       - 3000   
     ports:
-      - 3000:3000
+      - 8081:3000
     volumes:
       - ./frontend/src:/srv/app/admin-client/src
       - ./frontend/public:/srv/app/admin-client/public
