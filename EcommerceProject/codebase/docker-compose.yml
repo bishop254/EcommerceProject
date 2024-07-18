@@ -12,6 +12,7 @@ services:
       - ./frontend/public:/srv/app/admin-client/public
     stdin_open: true
     command: npm run start
+    restart: always
 
   backend:
     build: ./backend/
