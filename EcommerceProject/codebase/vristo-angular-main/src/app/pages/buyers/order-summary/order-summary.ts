@@ -75,7 +75,7 @@ export class OrderSummaryComponent {
             "totalAmount": "563.50"
         }
 
-        return this.http.post(`http://localhost:4000/api/v1/payment/checkout_session`, model, httpOptions)
+        return this.http.post(`http://102.23.120.135:4000/api/v1/payment/checkout_session`, model, httpOptions)
             .subscribe((response: any) => {
                 return true;
             }, (error: any) => {

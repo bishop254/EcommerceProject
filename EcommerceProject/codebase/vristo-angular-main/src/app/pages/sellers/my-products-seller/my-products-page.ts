@@ -64,7 +64,7 @@ export class MyProductsPage {
             })
         };
 
-        return this.http.get(`http://localhost:4000/api/v1/products?page=1&keyword=`, httpOptions)
+        return this.http.get(`http://102.23.120.135:4000/api/v1/products?page=1&keyword=`, httpOptions)
             .subscribe((response:any) => {
                 console.log('Post created:', response);
                 this.products = response.products
@@ -82,7 +82,7 @@ export class MyProductsPage {
             })
         };
 
-        return this.http.delete(`http://localhost:4000/product/${id}`, httpOptions)
+        return this.http.delete(`http://102.23.120.135:4000/product/${id}`, httpOptions)
             .subscribe(response => {
                 console.error('Success');
                 this.fetchAllProductsBySeller();

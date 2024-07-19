@@ -130,7 +130,7 @@ export class BuyProductComponent implements OnInit {
             })
         };
 
-        return this.http.get(`http://localhost:4000/api/v1/products/${this.productId}`, httpOptions)
+        return this.http.get(`http://102.23.120.135:4000/api/v1/products/${this.productId}`, httpOptions)
             .subscribe((response: any) => {
                 this.selectedProduct = response.product;
 
@@ -155,7 +155,7 @@ export class BuyProductComponent implements OnInit {
             })
         };
 
-        return this.http.put(`http://localhost:4000/buy/${this.productId}`, httpOptions)
+        return this.http.put(`http://102.23.120.135:4000/buy/${this.productId}`, httpOptions)
             .subscribe(response => {
                 console.log('Post created:', response);
                 this.router.navigate(['/sellers-account-settings-page'])
