@@ -19,25 +19,25 @@ const router = express.Router();
 router.route("/products").get(getProducts);
 router
   .route("/admin/products")
-  .post(isAuthenticatedUser, authorizeRoles("admin"), newProduct)
-  .get(isAuthenticatedUser, authorizeRoles("admin"), getAdminProducts);
+  .post(isAuthenticatedUser, authorizeRoles("user"), newProduct)
+  .get(isAuthenticatedUser, authorizeRoles("user"), getAdminProducts);
 
 router.route("/products/:id").get(getProductDetails);
 
 router
   .route("/admin/products/:id/upload_images")
-  .put(isAuthenticatedUser, authorizeRoles("admin"), uploadProductImages);
+  .put(isAuthenticatedUser, authorizeRoles("user"), uploadProductImages);
 
 router
   .route("/admin/products/:id/delete_image")
-  .put(isAuthenticatedUser, authorizeRoles("admin"), deleteProductImage);
+  .put(isAuthenticatedUser, authorizeRoles("user"), deleteProductImage);
 
 router
   .route("/admin/products/:id")
-  .put(isAuthenticatedUser, authorizeRoles("admin"), updateProduct);
+  .put(isAuthenticatedUser, authorizeRoles("user"), updateProduct);
 router
   .route("/admin/products/:id")
-  .delete(isAuthenticatedUser, authorizeRoles("admin"), deleteProduct);
+  .delete(isAuthenticatedUser, authorizeRoles("user"), deleteProduct);
 
 router
   .route("/reviews")
@@ -46,7 +46,7 @@ router
 
 router
   .route("/admin/reviews")
-  .delete(isAuthenticatedUser, authorizeRoles("admin"), deleteReview);
+  .delete(isAuthenticatedUser, authorizeRoles("user"), deleteReview);
 
 router.route("/can_review").get(isAuthenticatedUser, canUserReview);
 
