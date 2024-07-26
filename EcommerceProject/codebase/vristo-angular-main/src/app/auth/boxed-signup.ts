@@ -76,7 +76,7 @@ export class BoxedSignupComponent implements OnInit {
             password: this.form.value.password,
         }
 
-        return this.http.post(`http://102.23.120.135:4000/api/v1/register`, model, httpOptions)
+        return this.http.post(`http://102.23.120.135:8082/api/v1/register`, model, httpOptions)
             .subscribe((response: any) => {
                 console.log('Registered', response);
                 localStorage.setItem("token", response.token);

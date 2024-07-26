@@ -54,7 +54,7 @@ export class BuyersLandingPage implements OnInit {
             })
         };
 
-        return this.http.get(`http://102.23.120.135:4000/api/v1/products?page=1&keyword=`, httpOptions)
+        return this.http.get(`http://102.23.120.135:8082/api/v1/products?page=1&keyword=`, httpOptions)
             .subscribe((response:any) => {
                 console.log('Post created:', response);
                 this.products = response.products

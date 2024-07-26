@@ -57,7 +57,7 @@ export class SellersLandingPage implements OnInit {
             })
         };
 
-        return this.http.get('http://102.23.120.135:4000/products', httpOptions)
+        return this.http.get('http://102.23.120.135:8082/products', httpOptions)
             .subscribe(response => {
                 console.log('Post created:', response);
                 this.products = response
