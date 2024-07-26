@@ -78,7 +78,7 @@ export class EditProductComponent implements OnInit {
             })
         };
 
-        return this.http.put(`http://localhost:4000/api/v1/admin/products/${this.productId}`, payload, httpOptions)
+        return this.http.put(`http://102.23.120.135:4000/api/v1/admin/products/${this.productId}`, payload, httpOptions)
             .subscribe(response => {
                 console.log('Post created:', response);
                 this.router.navigate(['/sellers-account-settings-page'])
@@ -99,7 +99,7 @@ export class EditProductComponent implements OnInit {
             })
         };
 
-        return this.http.get(`http://localhost:4000/api/v1/products/${this.productId}`, httpOptions)
+        return this.http.get(`http://102.23.120.135:4000/api/v1/products/${this.productId}`, httpOptions)
             .subscribe(async (response: any) => {
                 console.log('Post created:', response);
                 this.selectedProduct = response.product;

@@ -37,7 +37,7 @@ export class SignupDocsComponent implements OnInit {
             })
         };
 
-        return this.http.put(`http://localhost:4000/api/v1/admin/products/${'6618c5290a2b37fbb4f3d693'}/upload_images`,
+        return this.http.put(`http://102.23.120.135:4000/api/v1/admin/products/${'6618c5290a2b37fbb4f3d693'}/upload_images`,
             this.selectedImages.cachedFileArray, httpOptions)
             .subscribe(response => {
                 console.log('Images Uploaded', response);

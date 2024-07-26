@@ -15,13 +15,13 @@ services:
     ports:
       - "8082:4000"
   
-  mongo:
-    image: mongo
-    container_name: shopit
-    restart: unless-stopped
-    env_file: ./backend/config/config.env
-    volumes:
-      - ~/data/db:/data/db
-    ports:
-      - 27017:27017
+  # mongo:
+  #   image: mongo
+  #   container_name: shopit
+  #   restart: unless-stopped
+  #   env_file: ./backend/config/config.env
+  #   volumes:
+  #     - ~/data/db:/data/db
+  #   ports:
+  #     - 27017:27017
     

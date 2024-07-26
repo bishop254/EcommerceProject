@@ -77,7 +77,7 @@ export class AddProductComponent {
             })
         };
 
-        return this.http.post('http://localhost:4000/api/v1/admin/products', payload, httpOptions)
+        return this.http.post('http://102.23.120.135:4000/api/v1/admin/products', payload, httpOptions)
             .subscribe(response => {
                 console.log('Post created:', response);
                 this.router.navigate(['/sellers-account-settings-page'])
@@ -117,7 +117,7 @@ export class AddProductComponent {
                 .catch(error => console.error("Error reading file:", error));
         }
 
-        return this.http.put(`http://localhost:4000/api/v1/admin/products/${'6647632b59134682c116dc02'}/upload_images`,
+        return this.http.put(`http://102.23.120.135:4000/api/v1/admin/products/${'6647632b59134682c116dc02'}/upload_images`,
             { images: arrayOfbaseImgs }, httpOptions)
             .subscribe(response => {
                 console.log('Images Uploaded', response);

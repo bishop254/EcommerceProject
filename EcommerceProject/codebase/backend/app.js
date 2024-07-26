@@ -24,7 +24,7 @@ if (process.env.NODE_ENV !== "PRODUCTION") {
 // Connecting to database
 connectDatabase();
 const corsOptions = {
-  origin: ['http://127.0.0.1:4200', 'http://127.0.0.1:3000'],
+  origin: ['http://127.0.0.1:4200', 'http://127.0.0.1:3000', 'http://102.23.120.135:8081'],
 };
 app.use(cors(corsOptions));
 
