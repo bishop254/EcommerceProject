@@ -21,10 +21,10 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
         ]),
     ],
 })
-export class BoxedSigninComponent  implements OnInit {
+export class BoxedSigninComponent implements OnInit {
 
     public form!: FormGroup;
-
+    errorMessage: string = "";
     store: any;
 
     user: string | undefined;
@@ -54,16 +54,17 @@ export class BoxedSigninComponent  implements OnInit {
     }
 
     navigateToRespectiveLandingPage() {
+        this.login(new User('Michael Mbugua', 'michael_mbugua@gmail.com'));
+    }
 
-        this.login(new User('Michael Mbugua', 'michael_mbugua@gmail.com'))
-
+    /**navigate user on successful login */
+    redirectUser() {
         if (this.user === 'Seller') {
             // this.router.navigate(['/sellers-landing-page'])
             this.router.navigate(['/sellers-account-settings-page'])
         } else {
             this.router.navigate(['/buyers-landing-page'])
         }
-
     }
 
     login(user: User) {
@@ -82,14 +83,20 @@ export class BoxedSigninComponent  implements OnInit {
         }
 
         return this.http.post(`http://102.23.120.135:8082/api/v1/login`, model, httpOptions)
-            .subscribe((response: any) => {
-                console.log('Logged In', response);
-                localStorage.setItem("token", response.token);
-
-                document.cookie = `token=${response.token};path=/;`;
-
-            }, error => {
-                console.error('Error:', error);
+            .subscribe({
+                next: (response: any) => {
+                    console.log('Logged In', response);
+                    if (response.token) {
+                        localStorage.setItem("token", response.token);
+                        document.cookie = `token=${response.token};path=/;`;
+                        this.redirectUser();
+                    } else {
+                        this.errorMessage = response.message;
+                    }
+                }, error: (error: any) => {
+                    this.errorMessage = "Request failed, please try again later";
+                    console.error(error);
+                }
             });
     }
 
@@ -98,7 +105,7 @@ export class BoxedSigninComponent  implements OnInit {
     }
 
 
-    ngOnInit(){
+    ngOnInit() {
         this.form = this.fb.group({
             userType: [''],
             email: [''],
