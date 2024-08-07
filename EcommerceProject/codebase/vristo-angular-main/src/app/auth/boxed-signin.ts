@@ -94,7 +94,7 @@ export class BoxedSigninComponent implements OnInit {
                         this.errorMessage = response.message;
                     }
                 }, error: (error: any) => {
-                    this.errorMessage = error.message ?? "Request failed, please try again later";
+                    this.errorMessage = error.error.message ?? "Request failed, please try again later";
                     console.error(error);
                 }
             });
