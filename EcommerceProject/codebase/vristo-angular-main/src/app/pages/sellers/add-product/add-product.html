@@ -17,7 +17,7 @@
                     <h5 class="text-lg font-semibold dark:text-white-light">Product Details Form</h5>
                 </div>
                 <div class="mb-5">
-                    <div class="mb-5">
+                    <div class="mb-5" *ngIf="!savedProductFlag">
                         <form [formGroup]="form" class="space-y-5">
                             <div>
                                 <label>Product Category</label>
